@@ -1,35 +1,33 @@
+<!-- Display the countdown timer in an element -->
+<p id="demo"></p>
 
-<!DOCTYPE html>
-<html>
-<body>
-
-<div class='fullscreenDiv'>
-    <div class="center" id="demo">Hello World</div>
-</div>
-<style>
-.center {
-	font: Century Gothic, sans-serif;
-    font-size: 1000%;
-    position: absolute;
-    width: 100px;
-    height: 50px;
-    top: 40%;
-    left: 43%;
-    margin-left: -50px; /* margin is -0.5 * dimension */
-    margin-top: -25px; 
-}
-</style>
 <script>
-function toC(){
-	var d = new Date();
-	var m = d.getMonth();
-    var d_2 = d.getDate();
-    if (m==11 && d_2==5){
-    	return "YES"
-    }
-	return "NO"
-}
-document.getElementById("demo").innerHTML = toC();
+// Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
 </script>
-</body>
-</html>
