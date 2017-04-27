@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class='fullscreenDiv'>
+    <div class="center" id="demo">Hello World</div>
+</div>
+<style>
+.center {
+	font: Century Gothic, sans-serif;
+    font-size: 1000%;
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    top: 40%;
+    left: 43%;
+    margin-left: -50px; /* margin is -0.5 * dimension */
+    margin-top: -25px; 
+}
+</style>
+<script>
+function toC(){
+	var d = new Date();
+	var m = d.getMonth();
+    var d_2 = d.getDate();
+    if (m==11 && d_2==5){
+    	return "YES"
+    }
+	return "NO"
+}
+document.getElementById("demo").innerHTML = toC();
+</script>
+</body>
+</html>
