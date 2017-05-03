@@ -1,46 +1,50 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
 <style>
 
 .number {
-	font: Century Gothic, sans-serif;
-    font-size: 1000%;
+	  font-family: 'Roboto',arial,sans-serif;
+    font-size: 700%;
+    font-weight: 100;
     position: absolute;
-    width: 100px;
-    height: 50px;
-    top: 40%;
-    left: 43%;
+    width: 100%;
+    top: 5%;
+    color: white;
+    vertical-align: center;
+    text-align: center;
     margin-left: -50px; /* margin is -0.5 * dimension */
     margin-top: -25px; 
 }
 
-
+body {
+    background: url('http://mtnlandforsale.com/wp-content/uploads/2010/11/front-range.jpg') no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 </style>
 
-<!-- Display the countdown timer in an element -->
+
 <p class="number" id="demo"></p>
 
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("May 26, 2017 18:00:00").getTime();
-
 // Update the count down every 1 second
 var x = setInterval(function() {
-
   // Get todays date and time
   var now = new Date().getTime();
-
   // Find the distance between now an the count down date
   var distance = countDownDate - now;
-
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
   // Display the result in the element with id="demo"
   document.getElementById("demo").innerHTML = days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
-
   // If the count down is finished, write some text 
   if (distance < 0) {
     clearInterval(x);
